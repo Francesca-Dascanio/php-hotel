@@ -42,16 +42,6 @@
     ];
 ?>
 
-<?php 
-    // CICLI
-    $singleHotel = [];
-
-    foreach ($hotels as $hotel) {
-        echo $hotel['name'];
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -66,11 +56,6 @@
         </h1>
         <ul>
             <?php 
-                // qui stampa dati con echo ma in html
-                // for ($i = 0; $i < count($hotels); $i++) {
-                //     $singleHotel[] = $i;
-                //     echo "<li>".$singleHotel[$i]."</li>";
-                // }
                 foreach ($hotels as $hotel) {
                     echo '<div> Hotel info: ';
                     echo '<li> Name: '.$hotel['name'].'</li>';
