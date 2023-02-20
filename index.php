@@ -1,5 +1,6 @@
 <?php 
 
+    // DATI
     $hotels = [
 
         [
@@ -41,6 +42,20 @@
     ];
 ?>
 
+<?php 
+    // CICLI
+    $singleHotel = [];
+
+    for ($i = 0; $i < count($hotels); $i++) {
+        $singleHotel[] = $i;
+
+        for ($int = 0; $int < count($hotels); $int++) {
+            // codice;
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -50,6 +65,17 @@
         <title>PHP Hotel</title>
     </head>
     <body>
-        
+        <h1>
+            PHP Hotels
+        </h1>
+        <ul>
+            <?php 
+                // qui stampa dati con echo ma in html
+                for ($i = 0; $i < count($hotels); $i++) {
+                    $singleHotel[] = $i;
+                    echo "<li>".$singleHotel[$i]."</li>";
+                }
+            ?>
+        </ul>
     </body>
 </html>
