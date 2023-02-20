@@ -46,12 +46,8 @@
     // CICLI
     $singleHotel = [];
 
-    for ($i = 0; $i < count($hotels); $i++) {
-        $singleHotel[] = $i;
-
-        for ($int = 0; $int < count($hotels); $int++) {
-            // codice;
-        }
+    foreach ($hotels as $hotel) {
+        echo $hotel['name'];
     }
 
 ?>
@@ -71,11 +67,22 @@
         <ul>
             <?php 
                 // qui stampa dati con echo ma in html
-                for ($i = 0; $i < count($hotels); $i++) {
-                    $singleHotel[] = $i;
-                    echo "<li>".$singleHotel[$i]."</li>";
+                // for ($i = 0; $i < count($hotels); $i++) {
+                //     $singleHotel[] = $i;
+                //     echo "<li>".$singleHotel[$i]."</li>";
+                // }
+                foreach ($hotels as $hotel) {
+                    echo '<div> Hotel info: ';
+                    echo '<li> Name: '.$hotel['name'].'</li>';
+                    echo '<li> Description: '.$hotel['description'].'</li>';
+                    echo '<li> Parking: '.$hotel['parking'].'</li>';
+                    echo '<li> Vote: '.$hotel['vote'].'</li>';
+                    echo '<li> Distance to Center: '.$hotel['distance_to_center'].'</li>';
+                    echo '</div>';
+                    echo '<br>';
                 }
             ?>
         </ul>
+        <br>
     </body>
 </html>
