@@ -48,26 +48,43 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>PHP Hotel</title>
     </head>
     <body>
         <h1>
             PHP Hotels
         </h1>
-        <ul>
-            <?php 
-                foreach ($hotels as $hotel) {
-                    echo '<div> Hotel info: ';
-                    echo '<li> Name: '.$hotel['name'].'</li>';
-                    echo '<li> Description: '.$hotel['description'].'</li>';
-                    echo '<li> Parking: '.$hotel['parking'].'</li>';
-                    echo '<li> Vote: '.$hotel['vote'].'</li>';
-                    echo '<li> Distance to Center: '.$hotel['distance_to_center'].'</li>';
-                    echo '</div>';
-                    echo '<br>';
-                }
-            ?>
-        </ul>
-        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <?php 
+                        $th = null;
+                        if (count($hotels) > 0) {
+                            $th = array_keys($hotels[0]);
+                        };
+
+                        foreach ($th as $header) {
+                            echo '<th>'.$header.'</th>';
+                        };
+                    ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    foreach ($hotels as $index => $hotel) {
+                        echo '<tr>';
+                        echo '<th>'.($index + 1).'</th>';
+                        echo '<td>'.$hotel['name'].'</td>';
+                        echo '<td>'.$hotel['description'].'</td>';
+                        echo '<td>'.($hotel['parking'] ? 'incluso' : 'non incluso').'</td>';
+                        echo '<td>'.$hotel['vote'].'</td>';
+                        echo '<td>'.$hotel['distance_to_center'].'</td>';
+                        echo '</tr>';
+                    }
+                ?>
+            </tbody>
+        </table>
     </body>
 </html>
